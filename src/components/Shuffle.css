@@ -1,0 +1,29 @@
+/* ── Shuffle text animation ── */
+.shuffle-parent {
+  display: inline-block;
+  position: relative;
+}
+
+.shuffle-parent .shuffle-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.shuffle-parent .shuffle-line {
+  display: block;
+}
+
+.shuffle-parent .shuffle-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Hide overflow on each char wrapper so slide-out chars aren't visible */
+.shuffle-parent [style*="overflow: hidden"] {
+  vertical-align: bottom;
+}
+
+/* Prevent layout shift before the animation initialises */
+.shuffle-parent:not(.is-ready) {
+  visibility: visible;
+}

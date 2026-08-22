@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Frosted Magenta — Global Base & Utility Layers
+   ============================================================ */
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-sans-body;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* keep native cursor inside iframes / inputs only */
+  input, textarea, select { cursor: none; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #0e0e11; }
+  ::-webkit-scrollbar-thumb { background: #5b3f45; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #ffb1c2; }
+}
+
+@layer components {
+  /* Glass card surface */
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+    border-radius: 0.75rem;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(255, 177, 194, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                0 0 32px rgba(255, 76, 135, 0.2),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Glass nav */
+  .glass-nav {
+    background-color: rgba(19, 19, 22, 0.7);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(135deg, #ff4c87, #bb0055);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: opacity 150ms ease, transform 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid #ffb1c2;
+    color: #ffb1c2;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background 150ms ease, transform 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 177, 194, 0.08);
+    transform: translateY(-1px);
+  }
+
+  /* Glass input */
+  .glass-input {
+    background-color: rgba(19, 19, 22, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e4e1e6;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .glass-input::placeholder { color: #ab888e; }
+  .glass-input:focus {
+    outline: none;
+    border-color: #ffb1c2;
+    box-shadow: 0 0 0 2px rgba(255, 177, 194, 0.2);
+  }
+
+  /* Typography helpers */
+  .font-display-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #ff4c87, #ea609b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Copy button micro-interaction */
+  .copy-btn {
+    padding: 0.25rem 0.625rem;
+    border: 1px solid #ffb1c2;
+    color: #ffb1c2;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    transition: background 150ms ease, color 150ms ease;
+    cursor: pointer;
+    background: transparent;
+  }
+  .copy-btn:hover {
+    background: rgba(255, 177, 194, 0.12);
+  }
+  .copy-btn.copied {
+    background: #ff4c87;
+    color: #fff;
+    border-color: #ff4c87;
+  }
+
+  /* Ambient orb */
+  .ambient-orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Horizontal slider: hide scrollbar */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
