@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "deploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "git add docs && git commit -m \"deploy: update docs\" && git push origin main"
   },
   "homepage": "https://chensiyi20020607-agent.github.io/vibe_coding_web",
   "dependencies": {

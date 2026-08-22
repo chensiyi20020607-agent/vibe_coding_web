@@ -7,5 +7,6 @@ export default defineConfig({
   base: '/vibe_coding_web/',
   build: {
     outDir: 'docs',
+    emptyOutDir: true,
   },
 })
