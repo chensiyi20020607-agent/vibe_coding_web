@@ -16,7 +16,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/vibe_coding_web">
       <MouseGlow />
       <ScrollToTop />
       <Routes>

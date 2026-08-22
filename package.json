@@ -7,8 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://chensiyi20020607-agent.github.io/vibe_coding_web",
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "gsap": "^3.15.0",
